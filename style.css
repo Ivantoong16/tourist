@@ -1,0 +1,753 @@
+/* Import TailwindCSS at the very top */
+@import url("https://cdn.tailwindcss.com");
+
+/* Custom styles for the Inter font and smooth scrolling */
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f8f9fa; /* Lighter background for a fresh look */
+    color: #343a40; /* Darker text for better contrast */
+    margin: 0;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Hide scrollbar for a cleaner look, but allow scrolling */
+body::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+body {
+    -ms-overflow-style: none;  /* For IE and Edge */
+    scrollbar-width: none;  /* For Firefox */
+}
+
+/* Base Styles */
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Header */
+.header-section {
+    background-image: linear-gradient(to right, #4a90e2, #6f42c1); /* Modern blue-purple gradient */
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-container {
+    display: flex;
+    align-items: center;
+}
+.header-logo-title-container { /* New style for the clickable area */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer; /* Indicate it's clickable */
+    transition: opacity 0.3s ease;
+}
+.header-logo-title-container:hover {
+    opacity: 0.8;
+}
+.header-title {
+    font-size: 1.8rem; /* Slightly reduced for better balance */
+    font-weight: 800;
+    margin: 0;
+}
+.main-nav {
+    flex-grow: 1; /* Allows the navigation to take up available space */
+    display: flex; /* Makes main-nav a flex container */
+    justify-content: center; /* Centers the navigation list within the available space */
+}
+.main-nav .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.main-nav .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 1.5rem; /* Increased spacing */
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 0.5rem 0;
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus {
+    color: #e0e0e0; /* Lighter hover for subtlety */
+    transform: translateY(-2px);
+}
+.weather-display {
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    margin-left: auto; /* Pushes the weather display to the far right */
+}
+.weather-display .loading-spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem; /* Space between spinner and text */
+}
+.weather-display .weather-text {
+    color: #ffffff;
+}
+.weather-display .error-text {
+    color: #ffd700; /* Yellow for warning/error */
+}
+
+
+/* Hero Section */
+.hero-section {
+    background: url('https://placehold.co/1200x600/a0aec0/ffffff?text=Scenic+Cebu+View') no-repeat center center/cover;
+    color: #ffffff;
+    text-align: center;
+    padding: 6rem 1.5rem; /* Increased padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Ensure it takes a good good portion of the viewport */
+}
+.hero-title {
+    font-size: 3.5rem; /* Larger title */
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
+}
+.hero-subtitle {
+    font-size: 1.4rem; /* Larger subtitle */
+    font-weight: 400;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
+}
+.btn {
+    padding: 0.8rem 1.8rem; /* Slightly larger buttons */
+    border-radius: 0.5rem; /* Rounded corners */
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.btn-primary {
+    background-color: #4a90e2; /* Primary blue */
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #357abd; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background-color: #6f42c1; /* Purple */
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #5a359e; /* Darker purple on hover */
+    transform: translateY(-2px);
+}
+.btn-purple {
+    background-color: #6f42c1;
+    color: white;
+}
+.btn-purple:hover {
+    background-color: #5a359e;
+    transform: translateY(-2px);
+}
+
+
+/* General Section Styling */
+.content-section {
+    padding: 4rem 0; /* Increased padding */
+}
+.section-title {
+    text-align: center;
+    font-size: 2.5rem; /* Larger section titles */
+    font-weight: 700;
+    margin-bottom: 3rem; /* Increased margin */
+    color: #343a40; /* Darker title color */
+}
+.section-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #6c757d; /* Softer description color */
+    max-width: 800px;
+    margin: 0 auto 3rem auto; /* Center description */
+}
+
+/* Destinations Section */
+.category-title {
+    font-size: 1.8rem; /* Larger category titles */
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #4a90e2; /* Blue for category titles */
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem; /* Increased gap */
+}
+.card {
+    background-color: #ffffff;
+    border-radius: 0.75rem; /* More rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 350px; /* Ensure cards have enough height */
+}
+.card:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+.card-image {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensure image covers the area */
+}
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allow content to take available space */
+    display: flex;
+    flex-direction: column;
+}
+.card-title {
+    font-size: 1.4rem; /* Slightly larger card titles */
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #343a40;
+}
+.card-description {
+    font-size: 0.95rem; /* Slightly larger card description */
+    color: #6c757d;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+.card-link {
+    margin-top: auto; /* Push link to the bottom */
+}
+
+
+/* Phrasebook Section */
+.phrasebook-section {
+    background-color: #e9ecef;
+}
+.phrasebook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.phrase-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+.phrase-english {
+    font-weight: 600;
+    color: #4a90e2;
+    margin-bottom: 0.5rem;
+}
+.phrase-cebuano {
+    color: #343a40;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-text {
+    max-width: 800px;
+    text-align: justify;
+    font-size: 1.05rem;
+}
+.about-image-container {
+    width: 100%;
+    max-width: 400px; /* Control image size */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Contact Section */
+.contact-section {
+    background-color: #e9ecef;
+}
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 2.5rem; /* Increased padding */
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.input-group {
+    margin-bottom: 1.5rem;
+}
+.input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #495057;
+}
+.text-input, .textarea-input {
+    width: 100%;
+    padding: 0.8rem 1rem; /* Increased padding */
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem; /* Rounded corners */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.text-input:focus, .textarea-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    outline: none;
+}
+.form-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 0.3rem;
+}
+.form-message.text-green-600 { /* Tailwind class equivalent */
+    background-color: #d1fae5;
+    color: #065f46;
+}
+.form-message.text-red-600 {  /* Tailwind class equivalent */
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+.form-message.text-gray-700 { /* Tailwind class equivalent */
+    background-color: #e5e7eb;
+    color: #374151;
+}
+.hidden {
+    display: none;
+}
+
+
+/* Footer */
+.footer-section {
+    background-color: #343a40; /* Dark footer */
+    color: #e0e0e0; /* Lighter text for footer */
+    padding: 2rem 0;
+    text-align: center;
+}
+.footer-container p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+.heart-icon {
+    color: #e25555; /* Red heart */
+}
+
+
+/* --- Messenger-style Chatbot Styles --- */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 380px; /* Fixed width for chat window */
+    height: 500px; /* Fixed height for chat window */
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Hide scrollbars for the container itself */
+    z-index: 1001;
+    transform: translateY(20px); /* Start slightly off-screen */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.chatbot-container.visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.chatbot-header {
+    background-image: linear-gradient(to right, #4a90e2, #6f42c1);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.chatbot-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chatbot-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.chatbot-close-btn:hover {
+    color: #e0e0e0;
+}
+
+.chat-messages {
+    flex-grow: 1; /* Takes up available space */
+    padding: 1rem;
+    overflow-y: auto; /* Enable scrolling for messages */
+    background-color: #f0f2f5; /* Light grey chat background */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f0f2f5;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.user-message, .bot-message {
+    max-width: 80%;
+    padding: 0.7rem 1rem;
+    border-radius: 1.2rem;
+    line-height: 1.4;
+    word-wrap: break-word; /* Ensure long words wrap */
+}
+
+.user-message {
+    align-self: flex-end; /* Align to the right */
+    background-color: #4a90e2; /* Blue for user messages */
+    color: white;
+    border-bottom-right-radius: 0.3rem; /* Sharpen bottom right corner */
+}
+
+.bot-message {
+    align-self: flex-start; /* Align to the left */
+    background-color: #e2e2e2; /* Light grey for bot messages */
+    color: #343a40;
+    border-bottom-left-radius: 0.3rem; /* Sharpen bottom left corner */
+}
+
+.chatbot-input-area {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #e0e0e0;
+    background-color: white;
+    align-items: flex-end; /* Align items to the bottom */
+}
+
+.chatbot-input-area .text-input {
+    flex-grow: 1;
+    margin-right: 0.5rem;
+    border-radius: 1.5rem; /* More rounded for chat input */
+    padding: 0.7rem 1rem;
+    min-height: 38px; /* Ensure it's not too small */
+    max-height: 100px; /* Limit height for multi-line input */
+    resize: none; /* Disable manual resize */
+    overflow-y: auto; /* Allow scrolling within textarea */
+}
+
+.chatbot-input-area .btn-purple {
+    padding: 0.7rem 1rem;
+    border-radius: 1.5rem; /* More rounded for send button */
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+/* Floating Action Button to open chatbot */
+.open-chatbot-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #6f42c1; /* Purple */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1002; /* Above chatbot container when closed */
+}
+.open-chatbot-fab:hover {
+    transform: scale(1.1);
+    background-color: #5a359e;
+}
+
+
+/* Loading Spinner (general and chatbot) */
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #6f42c1; /* Purple spinner */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin-left: auto;
+    margin-right: auto;
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Destination Modal Styles --- */
+.destination-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Ensure it's on top of everything */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.destination-modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.destination-modal-content {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh; /* Limit height to prevent overflow */
+    overflow-y: auto; /* Enable scrolling for long content */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.destination-modal-overlay.visible .destination-modal-content {
+    transform: translateY(0);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6c757d;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    color: #343a40;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#modal-destination-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+#modal-destination-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #495057;
+    margin-bottom: 1.5rem;
+}
+
+#modal-destination-details h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4a90e2;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+#modal-destination-details ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#modal-destination-details ul li {
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+#modal-destination-details p {
+    margin-bottom: 1rem;
+}
+
+#modal-destination-details a {
+    color: #4a90e2;
+    text-decoration: underline;
+}
+
+#modal-destination-details a:hover {
+    color: #357abd;
+}
+
+
+/* --- Animation Styles --- */
+
+/* Keyframe for a simple fade-in from bottom */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Base state for animated elements (hidden by default) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+/* Class added by JavaScript to trigger animation */
+.animate-on-scroll.is-animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .main-nav {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .main-nav .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .weather-display {
+        margin-top: 1rem;
+        align-self: flex-start;
+    }
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    .category-title {
+        font-size: 1.6rem;
+    }
+    .card {
+        min-height: 280px;
+    }
+    .card-title {
+        font-size: 1.5rem;
+    }
+    .card-description {
+        font-size: 0.9rem;
+    }
+    /* Adjust chatbot for smaller screens */
+    .chatbot-container {
+        width: 95%;
+        height: 80vh;
+        bottom: 10px;
+        right: 2.5%;
+        left: 2.5%;
+        max-width: unset; /* Remove max-width on mobile */
+    }
+    .open-chatbot-fab {
+        bottom: 15px;
+        right: 15px;
+        width: 55px;
+        height: 55px;
+    }
+    .destination-modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    #modal-destination-title {
+        font-size: 1.8rem;
+    }
+}

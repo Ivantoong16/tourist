@@ -82,9 +82,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add(sender + '-message');
-        messageDiv.textContent = text;
+
+        // Format the bot's response if the sender is 'bot'
+        if (sender === 'bot') {
+            const formattedText = `
+                <strong>Notable Destinations in Cebu: A Categorized Overview</strong><br><br>
+                This document provides a categorized overview of prominent destinations in Cebu, designed to facilitate a comprehensive exploration of the region’s diverse attractions.<br><br>
+                <strong>Regarding Cebu's destinations:</strong> The province offers a diverse range of attractions categorized by <strong>nature, culture, and urban experiences</strong>. <strong>Nature</strong> encompasses pristine beaches and dive sites in <strong>Moalboal</strong> and <strong>Malapascua</strong>, waterfalls like <strong>Kawasan Falls</strong> in Badian, and challenging hiking trails in <strong>Osmeña Peak</strong>. <strong>Culture</strong> is prominently displayed in <strong>Cebu City's</strong> historic landmarks such as <strong>Fort San Pedro</strong> and the <strong>Basilica del Santo Niño</strong>, as well as the preserved ancestral homes in <strong>Carcar City</strong>. <strong>Urban Experiences</strong> are primarily found in <strong>Cebu City</strong>, offering modern amenities including shopping malls like <strong>Ayala Center Cebu</strong> and <strong>SM Seaside City Cebu</strong>, vibrant nightlife, and a thriving culinary scene.
+            `;
+            messageDiv.innerHTML = formattedText;
+        } else {
+            // For user messages, keep the text as is
+            messageDiv.textContent = text;
+        }
+
         chatMessages.appendChild(messageDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to latest message
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
     }
 
     // Chatbot API Call
@@ -104,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 // Gemini API call: API key is automatically provided by the Canvas environment when left blank.
-                let chatHistory = [{ role: "user", parts: [{ text: "You are a friendly Cebu local expert. Answer the following question about Cebu concisely and helpfully: " + question }] }];
+                let chatHistory = [{ role: "user", parts: [{ text: "You are a formal Cebu local expert. Provide a concise and helpful answer to the following question about Cebu, using bold text for key terms and categories, and maintaining a formal tone: " + question }] }];
                 const payload = { contents: chatHistory };
                 const apiKey = "AIzaSyA6OrauzwNsuYqi0qd4VOIXgygzUvYTFhI"; // Leave this blank for Gemini API key to be provided by Canvas.
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -130,11 +143,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     addMessage(text, 'bot'); // Add bot response to chat
                 } else {
                     console.error('Unexpected API response structure:', result);
-                    addMessage("Sorry, I couldn't get a response. The API might have returned an unexpected result.", 'bot');
+                    addMessage("Apologies, I was unable to retrieve a response. The API may have returned an unexpected result.", 'bot');
                 }
             } catch (error) {
                 console.error("Error fetching expert answer:", error);
-                addMessage(`Sorry, something went wrong: ${error.message}. Please try again later.`, 'bot');
+                addMessage(`I sincerely apologize, an error occurred: ${error.message}. Kindly try again at your convenience.`, 'bot');
             } finally {
                 expertSpinner.style.display = 'none'; // Hide spinner
             }

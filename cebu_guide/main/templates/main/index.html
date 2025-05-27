@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Explore Cebu: Your Ultimate Travel Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header-section">
+        <div class="container header-container">
+            <div id="home-link" class="header-logo-title-container">
+                <img src="https://placehold.co/40x40/ffffff/000000?text=Logo" alt="Explore Cebu Logo" style="height: 40px; width: 40px; border-radius: 8px;" onerror="this.src='https://placehold.co/40x40/cccccc/333333?text=Image+Not+Found';">
+                <h1 class="header-title">Explore Cebu</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#destinations" class="nav-link">Destinations</a></li>
+                    <li><a href="#cebuano-phrasebook" class="nav-link">Phrasebook</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="weather-display" class="weather-display">
+                <div class="loading-spinner weather-spinner" style="display: none;"></div>
+                <span class="weather-text">Loading weather...</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section animate-on-scroll">
+            <h2 class="hero-title">Discover the Queen City of the South</h2>
+            <p class="hero-subtitle">Your ultimate guide to the stunning islands, rich history, and vibrant culture of Cebu, Philippines.</p>
+            <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
+        </section>
+
+        <section id="destinations" class="content-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Popular Destinations</h2>
+                <p class="section-description animate-on-scroll">From pristine beaches to historical landmarks, and thrilling adventures, Cebu has something for every traveler. Explore its wonders from North to South!</p>
+
+                <h3 class="category-title animate-on-scroll">Northern Cebu Highlights</h3>
+                <div class="destinations-grid">
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/4CAF50/ffffff?text=Bantayan+Island" alt="Bantayan+Island" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Bantayan Island</h4>
+                            <p class="card-description">Known for its pristine white-sand beaches, crystal-clear waters, and serene atmosphere, perfect for a relaxing getaway.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="bantayan">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/2196F3/ffffff?text=Malapascua+Island" alt="Malapascua+Island" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Malapascua Island</h4>
+                            <p class="card-description">A diver's paradise, famous for its thresher shark sightings, vibrant coral reefs, and diverse marine life.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="malapascua">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/FFC107/333333?text=Capitancillo+Islet" alt="Capitancillo+Islet" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Capitancillo Islet</h4>
+                            <p class="card-description">A small, uninhabited island off Bogo City, popular for diving and snorkeling with its vibrant underwater ecosystem.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="capitancillo">Learn More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <h3 class="category-title animate-on-scroll">Cebu City & Central Highlands</h3>
+                <div class="destinations-grid">
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/7c3aed/ffffff?text=Magellan%27s+Cross" alt="Magellan%27s+Cross" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Magellan's Cross</h4>
+                            <p class="card-description">A historic Christian cross planted by Portuguese and Spanish explorers as ordered by Ferdinand Magellan upon arriving in Cebu in 1521.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="magellans-cross">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/db2777/ffffff?text=Fort+San+Pedro" alt="Fort+San+Pedro" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Fort San Pedro</h4>
+                            <p class="card-description">A military defense structure built by Spanish and Cebuano laborers under the command of Spanish conquistador, Miguel López de Legazpi.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="fort-san-pedro">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/9C27B0/ffffff?text=Basilica+Santo+Niño" alt="Basilica+Minore+del+Santo+Niño" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Basilica Minore del Santo Niño</h4>
+                            <p class="card-description">Home to the revered Santo Niño de Cebu, a significant religious and historical landmark in the Philippines.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="basilica-santo-nino">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/673AB7/ffffff?text=Cebu+Taoist+Temple" alt="Cebu+Taoist+Temple" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Cebu Taoist Temple</h4>
+                            <p class="card-description">A colorful and ornate temple offering panoramic views of Cebu City, a serene place for reflection and cultural appreciation.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="taoist-temple">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/E91E63/ffffff?text=Temple+of+Leah" alt="Temple+of+Leah" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Temple of Leah</h4>
+                            <p class="card-description">A grand Roman-inspired temple built as a symbol of undying love, offering stunning architecture and city views.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="temple-of-leah">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/8BC34A/ffffff?text=Sirao+Flower+Garden" alt="Sirao+Flower+Garden" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Sirao Flower Garden</h4>
+                            <p class="card-description">Often called "Little Amsterdam," this vibrant garden is filled with colorful celosia flowers and picturesque spots.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="sirao-garden">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/607D8B/ffffff?text=Tops+Lookout" alt="Tops+Lookout" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Tops Lookout</h4>
+                            <p class="card-description">An iconic viewpoint offering breathtaking panoramic views of Cebu City, Mactan Island, and beyond.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="tops-lookout">Learn More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <h3 class="category-title animate-on-scroll">Southern Cebu Adventures</h3>
+                <div class="destinations-grid">
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/16a34a/ffffff?text=Kawasan+Falls" alt="Kawasan+Falls" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Kawasan Falls</h4>
+                            <p class="card-description">Famous for its multi-tiered waterfalls with crystal clear turquoise water, perfect for swimming and canyoneering.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="kawasan-falls">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/d97706/ffffff?text=Oslob+Whale+Sharks" alt="Oslob+Whale+Sharks" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Oslob Whale Sharks</h4>
+                            <p class="card-description">Experience swimming with the gentle giants of the sea in Oslob, a popular tourist activity.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="oslob-whale-sharks">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/00BCD4/ffffff?text=Moalboal+Sardine+Run" alt="Moalboal+Sardine+Run" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Moalboal Sardine Run</h4>
+                            <p class="card-description">Witness millions of sardines swirling in a mesmerizing bait ball just meters from the shore, a world-class diving and snorkeling experience.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="moalboal-sardine-run">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/FF9800/ffffff?text=Osmeña+Peak" alt="Osmeña+Peak" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Osmeña Peak</h4>
+                            <p class="card-description">Cebu's highest peak, offering unique jagged hills and breathtaking 360-degree views of the island's landscape.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="osmena-peak">Learn More</a>
+                        </div>
+                    </article>
+                    <article class="card animate-on-scroll">
+                        <img src="https://placehold.co/400x200/795548/ffffff?text=Sumilon+Island" alt="Sumilon+Island" class="card-image" onerror="this.src='https://placehold.co/400x200/cccccc/333333?text=Image+Not+Found';">
+                        <div class="card-content">
+                            <h4 class="card-title">Sumilon Island</h4>
+                            <p class="card-description">A pristine island off Oslob known for its shifting sandbar, clear waters, and excellent snorkeling and diving spots.</p>
+                            <a href="#" class="btn btn-secondary card-link" data-destination-id="sumilon-island">Learn More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="cebuano-phrasebook" class="content-section phrasebook-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Basic Cebuano Phrases</h2>
+                <p class="section-description animate-on-scroll">Learn a few local phrases to enhance your travel experience and connect with the friendly Cebuanos.</p>
+                <div class="phrasebook-grid">
+                    <div class="phrase-card animate-on-scroll">
+                        <p class="phrase-english">Good morning</p>
+                        <p class="phrase-cebuano">Maayong Buntag</p>
+                    </div>
+                    <div class="phrase-card animate-on-scroll">
+                        <p class="phrase-english">Thank you</p>
+                        <p class="phrase-cebuano">Salamat</p>
+                    </div>
+                    <div class="phrase-card animate-on-scroll">
+                        <p class="phrase-english">How much is this?</p>
+                        <p class="phrase-cebuano">Tagpila ni?</p>
+                    </div>
+                    <div class="phrase-card animate-on-scroll">
+                        <p class="phrase-english">Delicious!</p>
+                        <p class="phrase-cebuano">Lami kaayo!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <div class="container about-content">
+                <h2 class="section-title animate-on-scroll">About Cebu</h2>
+                <div class="about-image-container animate-on-scroll">
+                    <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Cebu+Island+Map+Illustration" alt="Illustration+of+Cebu+Island" class="about-image" onerror="this.src='http://www.cebu-philippines.net/cebu-map.html'">
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <p>Cebu, an island province in the Philippines, is renowned for its stunning natural beauty, rich historical heritage, and warm, hospitable people. Known as the "Queen City of the South," Cebu City, its capital, is a bustling metropolis that seamlessly blends modernity with centuries-old traditions. The province boasts some of the country's most beautiful white-sand beaches, crystal-clear waters teeming with marine life, and breathtaking waterfalls nestled in lush tropical forests.</p>
+                    <p>Historically, Cebu holds a significant place as the cradle of Christianity in the Philippines. It was here that Ferdinand Magellan first landed in 1521, marking the beginning of Spanish colonization. Today, remnants of this colonial past, such as Magellan's Cross and Fort San Pedro, stand as iconic landmarks. Beyond its historical and natural attractions, Cebu is a vibrant cultural hub, famous for its lively Sinulog Festival, delicious local cuisine (like Lechon and SuTuKil), and thriving arts and crafts scene. Whether you're an adventure seeker, a history buff, or simply looking for a relaxing getaway, Cebu offers an unforgettable experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section contact-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+                <p class="section-description animate-on-scroll">Have questions or suggestions? We'd love to hear from you!</p>
+                <div class="contact-form-container animate-on-scroll">
+                    <form id="contact-form">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <label for="name" class="input-label">Name</label>
+                            <input type="text" id="name" name="name" class="text-input" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email" class="input-label">Email</label>
+                            <input type="email" id="email" name="email" class="text-input" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="message" class="input-label">Message</label>
+                            <textarea id="message" name="message" rows="5" class="textarea-input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <p id="form-submission-message" class="form-message hidden"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section animate-on-scroll">
+        <div class="container footer-container">
+            <p>&copy; 2025 Explore Cebu. All rights reserved. Made with <span class="heart-icon">❤️</span> in Cebu.</p>
+        </div>
+    </footer>
+
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3 class="chatbot-title">Cebu Chatbot</h3>
+            <div class="chatbot-actions"> {# New container for buttons #}
+                <button id="reset-chat-btn" class="chatbot-action-btn" title="Reset Chat"><i class="fas fa-redo"></i></button>
+                <button id="view-history-btn" class="chatbot-action-btn" title="View History"><i class="fas fa-history"></i></button>
+                <button class="chatbot-close-btn">&times;</button>
+            </div>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="bot-message">Hello! I'm your Cebu local expert. Ask me anything about Cebu!</div>
+        </div>
+        <div class="chatbot-input-area">
+            <textarea id="expert-question" rows="1" placeholder="Type your message..." class="text-input"></textarea>
+            <button id="ask-expert-btn" class="btn btn-purple">Send</button>
+        </div>
+        <div id="expert-answer-spinner" class="loading-spinner"></div>
+    </div>
+
+    <button id="open-chatbot-fab" class="open-chatbot-fab">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <div id="destination-modal" class="destination-modal-overlay hidden">
+        <div class="destination-modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h3 id="modal-destination-title"></h3>
+            <img id="modal-destination-image" src="" alt="Destination Image" class="modal-image" onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+            <p id="modal-destination-description"></p>
+            <div id="modal-destination-details"></div> </div>
+    </div>
+
+    {# NEW: History Modal #}
+    <div id="history-modal" class="history-modal-overlay hidden">
+        <div class="history-modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h3 class="history-title">Chat History</h3>
+            <div id="history-messages" class="history-messages">
+                <p class="no-history-message">No chat history found.</p>
+            </div>
+            <button id="clear-history-btn" class="btn btn-red">Clear History</button>
+        </div>
+    </div>
+
+    <script src="{% static 'main/script.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>

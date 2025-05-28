@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Dream Destination</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  
+</head>
+
+<body>
+  <header>
+    <div class="logo"> <a href="FRONT.html">Tour De Zubu</a></div>
+    <nav>
+      <a href="top.html">Destination</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero-slider">
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+    <div class="hero-content">
+      <section class="hero">
+        <h1>EXPLORE</h1>
+        <h2>DREAM</h2>
+        <h3>DESTINATION</h3>
+        <p>Embark on an unforgettable journey to breathtaking destinations. Discover pristine beaches, majestic mountains, and vibrant cities, all waiting to be explored. Let us guide you to your perfect escape.</p>
+      </section>
+    </div>
+  </section>
+  
+  <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3 class="chatbot-title">Tour De Zubu</h3>
+            <div class="chatbot-actions"> {# New container for buttons #}
+                <button id="reset-chat-btn" class="chatbot-action-btn" title="Reset Chat"><i class="fas fa-redo"></i></button>
+                <button id="view-history-btn" class="chatbot-action-btn" title="View History"><i class="fas fa-history"></i></button>
+                <button class="chatbot-close-btn">&times;</button>
+            </div>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="bot-message">Hello! I'm your Tour De Zubu AI Bot . Ask me anything about Cebu!</div>
+        </div>
+        <div class="chatbot-input-area">
+            <textarea id="expert-question" rows="1" placeholder="Type your message..." class="text-input"></textarea>
+            <button id="ask-expert-btn" class="btn btn-purple">Send</button>
+        </div>
+        <div id="expert-answer-spinner" class="loading-spinner"></div>
+    </div>
+
+    <button id="open-chatbot-fab" class="open-chatbot-fab">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    {# NEW: History Modal #}
+    <div id="history-modal" class="history-modal-overlay hidden">
+        <div class="history-modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h3 class="history-title">Chat History</h3>
+            <div id="history-messages" class="history-messages">
+                <p class="no-history-message">No chat history found.</p>
+            </div>
+            <button id="clear-history-btn" class="btn btn-red">Clear History</button>
+        </div>
+    </div>
+
+    <script src="{% static 'main/script.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>

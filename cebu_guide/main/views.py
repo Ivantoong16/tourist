@@ -8,9 +8,9 @@ from django.views.decorators.csrf import csrf_exempt  # Use this for simplicity 
 from django.views.decorators.http import require_GET
 from .models import ChatHistory
 
-def index(request):
+def FRONT(request):
     """ Renders the main page. """
-    return render(request, 'main/index.html')
+    return render(request, 'main/FRONT.html')
 
 @csrf_exempt  # You can keep this for testing, but remember to handle CSRF properly in production
 def ask_chatbot(request):

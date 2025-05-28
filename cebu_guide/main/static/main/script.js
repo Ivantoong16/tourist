@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 addMessage(msg.text, msg.sender);
             });
         } else {
-            addMessage("Hello! I'm your Cebu local expert. Ask me anything about Cebu!", "bot");
-            saveToCurrentSession("Hello! I'm your Cebu local expert. Ask me anything about Cebu!", "bot");
+            addMessage("Hello! I'm your Tour De Zubu AI Assistance . Ask me anything about Cebu!", "bot");
+            saveToCurrentSession("Hello! I'm your Tour De Zubu AI Assistance  . Ask me anything about Cebu!", "bot");
         }
     }
 
@@ -161,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function resetChat() {
         chatMessages.innerHTML = '';
         localStorage.removeItem('currentChatSession');
-        addMessage("Hello! I'm your Cebu local expert. Ask me anything about Cebu!", "bot");
-        saveToCurrentSession("Hello! I'm your Cebu local expert. Ask me anything about Cebu!", "bot");
+        addMessage("Hello! I'm your Tour De Zubu AI Assistance  . Ask me anything about Cebu!", "bot");
+        saveToCurrentSession("Hello! I'm your Tour De Zubu AI Assistance  . Ask me anything about Cebu!", "bot");
         console.log('Chat session reset.');
     }
 

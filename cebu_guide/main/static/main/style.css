@@ -1,35 +1,290 @@
 /* Import TailwindCSS at the very top */
 @import url("https://cdn.tailwindcss.com");
 
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Body styling */
+    body {
+      background-color: #00796b; /* Dark teal background */
+      color: white; /* White text color */
+    }
+
+    /* Header styling */
+    header {
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      position: absolute; /* Position header over the slider */
+      width: 100%;
+      z-index: 10; /* Ensure header is above other content */
+    }
+
+    /* Logo styling */
+    .logo {
+      flex: 1; /* Allows logo to take up available space */
+      font-size: 1.5rem; /* Larger font for logo */
+      font-weight: 700; /* Bold font weight */
+    }
+
+    /* Style for the link inside the logo */
+    .logo a {
+      text-decoration: none; /* Remove underline for the logo link */
+      color: white; /* Set color to white for the logo link */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+    .logo a:hover {
+      color: #00b6c2; /* Highlight color on hover, consistent with nav links */
+    }
+
+    /* Navigation styling */
+    nav {
+      flex: 2; /* Allows navigation to take more space */
+      display: flex;
+      justify-content: center; /* Center navigation links */
+      align-items: center;
+    }
+
+    /* Navigation link styling */
+    nav a {
+      margin: 0 1rem; /* Spacing between links */
+      text-decoration: none; /* Remove underline */
+      color: white; /* White link color */
+      font-weight: 500; /* Medium font weight */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+    nav a:hover {
+      color: #00b6c2; /* Highlight color on hover */
+    }
+
+    /* Hero slider container */
+    .hero-slider {
+      position: relative;
+      height: 100vh; /* Full viewport height */
+      overflow: hidden; /* Hide overflowing content */
+    }
+
+    /* Individual slide styling */
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-size: cover; /* Cover the entire area */
+      background-position: center; /* Center the background image */
+      animation: fade 15s infinite; /* Apply fade animation */
+      opacity: 0; /* Start with opacity 0 */
+      transition: opacity 1s ease-in-out; /* Smooth opacity transition */
+    }
+
+    /* Specific slide background images and animation delays */
+    .slide1 {
+      background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/d7/ef/23/caption.jpg?w=1200&h=-1&s=1');
+      animation-delay: 0s;
+    }
+
+    .slide2 {
+      background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/bf/4c/b1/photo5jpg.jpg?w=2000&h=-1&s=1');
+      animation-delay: 5s;
+    }
+
+    .slide3 {
+      background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/f7/55/47/kota-beach-resort.jpg?w=1200&h=-1&s=1');
+      animation-delay: 10s;
+    }
+
+    /* Keyframe animation for fading slides */
+    @keyframes fade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      30% { opacity: 1; }
+      40% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* Hero content container */
+    .hero-content {
+      position: absolute;
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust for exact centering */
+      z-index: 1; /* Ensure content is above slides */
+      text-align: center;
+      color: white;
+      padding: 20px; /* Add some padding */
+      width: 90%; /* Responsive width */
+      max-width: 800px; /* Max width for larger screens */
+    }
+
+    /* Hero section headings (h1, h2, h3) */
+    .hero h1 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 5rem; /* Larger font size */
+      font-weight: 700; /* Bold font weight */
+      margin-bottom: 10px; /* Space below h1 */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+    }
+
+    .hero h2 {
+      font-size: 3.5rem; /* Large font size */
+      font-weight: 500;
+      color: white;
+      margin-top: 10px;
+      margin-bottom: 10px; /* Space below h2 */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+    }
+
+    .hero h3 {
+      font-size: 1.5rem; /* Medium font size */
+      font-weight: 300;
+      color: whitesmoke;
+      text-transform: uppercase;
+      margin-bottom: 20px; /* Space below h3 */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+    }
+
+    /* Hero paragraph */
+    .hero p {
+      margin: 5px;
+      font-size: 1.1rem; /* Readable font size */
+      color: white; /* Changed to white for better contrast */
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Subtle text shadow for paragraph */
+    }
+
+    /* Cards container */
+    .cards {
+      display: flex;
+      gap: 1rem; /* Gap between cards */
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    }
+
+    /* Individual card styling */
+    .card {
+      background-color: white;
+      color: #333; /* Dark grey text */
+      border-radius: 10px;
+      overflow: hidden;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow to cards */
+      transition: transform 0.3s ease; /* Smooth transform on hover */
+    }
+
+    .card:hover {
+      transform: translateY(-5px); /* Lift card slightly on hover */
+    }
+
+    /* Card image styling */
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover; /* Cover image area */
+    }
+
+    /* Card body styling */
+    .card-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Card body heading */
+    .card-body h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Card button styling */
+    .card-body button {
+      margin-top: 1rem;
+      background-color: #00b6c2; /* Teal button color */
+      color: black;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth background transition */
+    }
+
+    .card-body button:hover {
+      background-color: #008c99; /* Darker teal on hover */
+    }
+
+    /* Keyframe for background slide animation (not currently used in this layout) */
+    @keyframes slideBackground {
+      0% { background-position: 0% 50%; }
+      100% { background-position: -100% 50%; }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1rem;
+        align-items: flex-start; /* Align header items to start on small screens */
+      }
+
+      .logo {
+        margin-bottom: 0.5rem; /* Add space below logo on small screens */
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+      }
+
+      nav {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* Align nav links to start on small screens */
+      }
+
+      nav a {
+        margin: 0.5rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem; /* Adjust font size for smaller screens */
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero h3 {
+        font-size: 1.2rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .hero-content {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero h3 {
+        font-size: 1rem;
+      }
+    }
 /* Custom styles for the Inter font and smooth scrolling */
-body {
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
-    background-color: #f8f9fa; /* Lighter background for a fresh look */
-    color: #343a40; /* Darker text for better contrast */
-    margin: 0;
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
 /* Hide scrollbar for a cleaner look, but allow scrolling */
-body::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
-}
-body {
-    -ms-overflow-style: none;  /* For IE and Edge */
-    scrollbar-width: none;  /* For Firefox */
-}
-
-/* Base Styles */
-.container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
 /* Header */
 .header-section {
     background-image: linear-gradient(to right, #4a90e2, #6f42c1); /* Modern blue-purple gradient */
@@ -115,269 +370,11 @@ body {
 /* IMPORTANT: For Django, the background image path should point to a local file.
     Create an 'images' folder inside 'main/static/main/' and place your hero image there.
 */
-.hero-section {
-    background: url('../images/cebu-hero-image.jpg') no-repeat center center/cover;
-    color: #ffffff;
-    text-align: center;
-    padding: 6rem 1.5rem; /* Increased padding */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh; /* Ensure it takes a good good portion of the viewport */
-}
-.hero-title {
-    font-size: 3.5rem; /* Larger title */
-    font-weight: 800;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
-}
-.hero-subtitle {
-    font-size: 1.4rem; /* Larger subtitle */
-    font-weight: 400;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
-}
-.btn {
-    padding: 0.8rem 1.8rem; /* Slightly larger buttons */
-    border-radius: 0.5rem; /* Rounded corners */
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-.btn-primary {
-    background-color: #4a90e2; /* Primary blue */
-    color: white;
-}
-.btn-primary:hover {
-    background-color: #357abd; /* Darker blue on hover */
-    transform: translateY(-2px);
-}
-.btn-secondary {
-    background-color: #6f42c1; /* Purple */
-    color: white;
-}
-.btn-secondary:hover {
-    background-color: #5a359e; /* Darker purple on hover */
-    transform: translateY(-2px);
-}
-.btn-purple {
-    background-color: #6f42c1;
-    color: white;
-}
-.btn-purple:hover {
-    background-color: #5a359e;
-    transform: translateY(-2px);
-}
-
-
-/* General Section Styling */
-.content-section {
-    padding: 4rem 0; /* Increased padding */
-}
-.section-title {
-    text-align: center;
-    font-size: 2.5rem; /* Larger section titles */
-    font-weight: 700;
-    margin-bottom: 3rem; /* Increased margin */
-    color: #343a40; /* Darker title color */
-}
-.section-description {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #6c757d; /* Softer description color */
-    max-width: 800px;
-    margin: 0 auto 3rem auto; /* Center description */
-}
-
-/* Destinations Section */
-.category-title {
-    font-size: 1.8rem; /* Larger category titles */
-    font-weight: 600;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #4a90e2; /* Blue for category titles */
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 0.5rem;
-}
-.destinations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 2rem; /* Increased gap */
-}
-.card {
-    background-color: #ffffff;
-    border-radius: 0.75rem; /* More rounded corners */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 350px; /* Ensure cards have enough height */
-}
-.card:hover {
-    transform: translateY(-8px); /* Lift effect on hover */
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-}
-.card-image {
-    width: 100%;
-    height: 200px; /* Fixed height for images */
-    object-fit: cover; /* Ensure image covers the area */
-}
-.card-content {
-    padding: 1.5rem;
-    flex-grow: 1; /* Allow content to take available space */
-    display: flex;
-    flex-direction: column;
-}
-.card-title {
-    font-size: 1.4rem; /* Slightly larger card titles */
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: #343a40;
-}
-.card-description {
-    font-size: 0.95rem; /* Slightly larger card description */
-    color: #6c757d;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-}
-.card-link {
-    margin-top: auto; /* Push link to the bottom */
-}
-
-
-/* Phrasebook Section */
-.phrasebook-section {
-    background-color: #e9ecef;
-}
-.phrasebook-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-.phrase-card {
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-}
-.phrase-english {
-    font-weight: 600;
-    color: #4a90e2;
-    margin-bottom: 0.5rem;
-}
-.phrase-cebuano {
-    color: #343a40;
-}
-
 /* About Section */
-.about-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-.about-text {
-    max-width: 800px;
-    text-align: justify;
-    font-size: 1.05rem;
-}
-.about-image-container {
-    width: 100%;
-    max-width: 400px; /* Control image size */
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-.about-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-/* Contact Section */
-.contact-section {
-    background-color: #e9ecef;
-}
-.contact-form-container {
-    max-width: 700px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 2.5rem; /* Increased padding */
-    border-radius: 0.75rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-.input-group {
-    margin-bottom: 1.5rem;
-}
-.input-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #495057;
-}
-.text-input, .textarea-input {
-    width: 100%;
-    padding: 0.8rem 1rem; /* Increased padding */
-    border: 1px solid #ced4da;
-    border-radius: 0.5rem; /* Rounded corners */
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.text-input:focus, .textarea-input:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
-    outline: none;
-}
-.form-message {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    padding: 0.75rem;
-    border-radius: 0.3rem;
-}
-.form-message.text-green-600 { /* Tailwind class equivalent */
-    background-color: #d1fae5;
-    color: #065f46;
-}
-.form-message.text-red-600 {  /* Tailwind class equivalent */
-    background-color: #fee2e2;
-    color: #991b1b;
-}
-.form-message.text-gray-700 { /* Tailwind class equivalent */
-    background-color: #e5e7eb;
-    color: #374151;
-}
-
 /* Generic hidden class for elements you want to remove from layout */
 .hidden {
     display: none;
 }
-
-
-/* Footer */
-.footer-section {
-    background-color: #343a40; /* Dark footer */
-    color: #e0e0e0; /* Lighter text for footer */
-    padding: 2rem 0;
-    text-align: center;
-}
-.footer-container p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-.heart-icon {
-    color: #e25555; /* Red heart */
-}
-
-
 /* --- Messenger-style Chatbot Styles --- */
 .chatbot-container {
     position: fixed;
@@ -587,7 +584,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #6f42c1; /* Purple */
+    background-color: rgb(61, 197, 255); /* Purple */
     color: white;
     width: 60px;
     height: 60px;
@@ -606,7 +603,7 @@ body {
 }
 .open-chatbot-fab:hover {
     transform: scale(1.1);
-    background-color: #5a359e;
+    background-color: 	#088F8F;
 }
 
 /* Class to hide the FAB when the chatbot is open */
@@ -635,123 +632,6 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-/* --- Destination Modal Styles --- */
-.destination-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000; /* Ensure it's on top of everything */
-    /* Initial hidden state with transitions */
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Class to show the destination modal */
-.destination-modal-overlay.is-visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.destination-modal-content {
-    background-color: #ffffff;
-    padding: 2.5rem;
-    border-radius: 0.75rem;
-    width: 90%;
-    max-width: 800px;
-    max-height: 90vh; /* Limit height to prevent overflow */
-    overflow-y: auto; /* Enable scrolling for long content */
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(20px); /* Start slightly off-screen */
-    transition: transform 0.3s ease;
-}
-
-/* Apply transform when the overlay becomes visible */
-.destination-modal-overlay.is-visible .destination-modal-content {
-    transform: translateY(0);
-}
-
-.modal-close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #6c757d;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.modal-close-btn:hover {
-    color: #343a40;
-}
-
-.modal-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-#modal-destination-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #343a40;
-    margin-bottom: 1rem;
-}
-
-#modal-destination-description {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #495057;
-    margin-bottom: 1.5rem;
-}
-
-#modal-destination-details h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #4a90e2;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-#modal-destination-details ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-#modal-destination-details ul li {
-    margin-bottom: 0.5rem;
-    color: #495057;
-}
-
-#modal-destination-details p {
-    margin-bottom: 1rem;
-}
-
-#modal-destination-details a {
-    color: #4a90e2;
-    text-decoration: underline;
-}
-
-#modal-destination-details a:hover {
-    color: #357abd;
-}
-
 /* --- History Modal Styles (New) --- */
 .history-modal-overlay {
     position: fixed;
@@ -761,6 +641,7 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
+    color: black;
     justify-content: center;
     align-items: center;
     z-index: 10000; /* Ensure it's on top of everything */

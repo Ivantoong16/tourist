@@ -1,0 +1,424 @@
+body {
+     margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+    color: #fff;
+}
+header {
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      position: absolute; /* Position header over the slider */
+      width: 100%;
+      z-index: 10;
+      margin-bottom: 50px; /* Ensure header is above other content */
+    }
+
+    /* Logo styling */
+    .logo {
+      flex: 1; /* Allows logo to take up available space */
+      font-size: 1.5rem; /* Larger font for logo */
+      font-weight: 700; /* Bold font weight */
+    }
+
+    /* Style for the link inside the logo */
+    .logo a {
+      text-decoration: none; /* Remove underline for the logo link */
+      color: white; /* Set color to white for the logo link */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+    .logo a:hover {
+      color: #00b6c2; /* Highlight color on hover, consistent with nav links */
+    }
+
+    /* Navigation styling */
+    nav {
+      flex: 2; /* Allows navigation to take more space */
+      display: flex;
+      justify-content: center; /* Center navigation links */
+      align-items: center;
+    }
+
+    /* Navigation link styling */
+    nav a {
+      margin: 0 1rem; /* Spacing between links */
+      text-decoration: none; /* Remove underline */
+      color: white; /* White link color */
+      font-weight: 500; /* Medium font weight */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+    nav a:hover {
+      color: #00b6c2; /* Highlight color on hover */
+    }
+
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif; /* Headings font */
+    color:  rgba(0, 0, 0, 0.6); /* Semi-transparent black background */ /* Darker color for headings */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.3em; }
+
+a {
+    text-decoration: none;
+    color: #2ECC71; /* Emerald Green for links */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #27AE60; /* Darker Emerald Green on hover */
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+.top-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.header-main-content {
+            position: absolute; /* Position absolutely within the header */
+            top: 65%; /* Adjusted to move lower in the header */
+            left: 50%; /* Start at 50% from the left */
+            transform: translate(-50%, -50%); /* Pull back by half its width/height to truly center */
+            z-index: 2; /* Ensure content is above the overlay */
+            padding: 2rem;
+            text-align: center; /* Center text horizontally within this div */
+            width: 90%; /* Adjust width as needed */
+            max-width: 800px; /* Limit max width for readability */
+            box-sizing: border-box; /* Include padding in width */
+            color: black;
+        }
+
+        .header-main-content h1 {
+            margin-top: 0; /* Reset default margin */
+            margin-bottom: 0.5rem;
+            font-size: 3.5rem; /* Larger font size for impact */
+            line-height: 1.2;
+        }
+
+        .header-main-content p {
+            margin-top: 0; /* Reset default margin */
+            font-size: 1.2rem; /* Standard font size */
+            max-width: 600px; /* Limit width for readability */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+
+.header-top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.top-contact-info span,
+.top-call-info span {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.top-contact-info i,
+.top-call-info i {
+    margin-right: 8px;
+}
+
+/* Removed: .main-header and all its nested rules (from previous steps) */
+
+
+/* Page Banner Section */
+.page-banner { /* A very light blue-grey for a subtle clean look */
+    color: #2C3E50; /* Dark text color for readability */
+    text-align: center; /* Center the text */
+    padding: 10px 0;
+    position: relative;
+    z-index: 0;
+    margin-bottom: 10px; /* Space before contact content section */
+}
+
+.page-banner::before {
+    content: none; /* Explicitly remove pseudo-element content */
+}
+
+.page-banner-title { /* Main page title, now just text */
+    font-size: 3.5em;
+    margin-top: 50px;
+    position: absolute;
+    align-items: center;
+    transform: translate(190% , 50%);
+    color: #2C3E50; /* Dark text color */
+}
+
+
+
+/* Contact Content Section */
+.contact-content-section {
+    padding: 40px 0;
+}
+
+.contact-grid {
+    display: flex; /* Changed to flexbox for centering */
+    justify-content: center; /* Centers the form horizontally */
+    align-items: flex-start; /* Aligns to the top if height allows */
+    gap: 50px; /* Gap property still works with flexbox */
+}
+
+.contact-form-wrapper {
+    background-color: #fff;
+    padding: 40px;
+    margin-top: 120px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    max-width: 600px; /* Optional: give the form a max-width for better aesthetics */
+    width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+.contact-form-wrapper h3 {
+    text-align: center; /* Centered "Send Us a Message" */
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: none; /* Hide labels as per image, use placeholders */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2ECC71; /* Emerald Green on focus */
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(46, 204, 113, 0.15); /* Soft green shadow */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-button {
+    background-color: #E67E22; /* Sunset Orange button */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* To allow padding around text */
+}
+
+.submit-button:hover {
+    background-color: #D35400; /* Darker Sunset Orange on hover */
+}
+
+/* Removed all .get-in-touch-wrapper and its nested rules (from previous steps) */
+
+
+/* Footer */
+.site-footer {
+    background-color: #2C3E50; /* Dark Slate Blue footer */
+    color: #fff;
+    padding: 60px 0 20px;
+    font-size: 0.95em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator line */
+}
+
+.footer-col h4 {
+    color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #E67E22; /* Sunset Orange accent line */
+}
+
+.footer-logo .footer-text-logo { /* Styling for footer text logo */
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em; /* Slightly smaller than header logo */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block; /* Ensures margin works */
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+}
+
+.footer-social-links a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.1); /* Transparent white background */
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.9em;
+    margin-right: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-social-links a:hover {
+    background-color: #E67E22; /* Sunset Orange on hover */
+}
+
+.site-footer ul li {
+    margin-bottom: 12px;
+}
+
+.site-footer ul li a {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease;
+    position: relative;
+    padding-left: 15px;
+}
+
+.site-footer ul li a::before {
+    content: "\f105"; /* Font Awesome right arrow icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7em;
+    color: #E67E22; /* Sunset Orange arrow */
+}
+
+.site-footer ul li a:hover {
+    color: #fff;
+}
+
+.footer-contact-info p {
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-contact-info i {
+    margin-right: 10px;
+    color: #E67E22; /* Sunset Orange icon */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.85em;
+    color: rgba(255,255,255,0.6);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    /* Removed main-header nav rules as header is gone */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Now always 1 column for contact form */
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-col:not(:first-child) {
+        margin-top: 30px; /* Add spacing between stacked columns */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top-bar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .top-contact-info span,
+    .top-call-info span {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    /* Removed main-header nav rules as header is gone */
+    .page-banner-title { /* Adjusted for smaller screens */
+        font-size: 2.5em;
+    }
+    .contact-form-wrapper { /* Applies only to contact-form-wrapper now */
+        padding: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-banner {
+        padding: 60px 0;
+    }
+    .page-banner-title { /* Adjusted for smaller screens */
+        font-size: 2em;
+    }
+    .contact-form-wrapper { /* Applies only to contact-form-wrapper now */
+        box-shadow: none; /* Reduce box shadow on very small screens */
+        border: 1px solid #eee; /* Add a subtle border instead */
+    }
+    /* Removed social-links a rule from get-in-touch */
+    .site-footer {
+        padding: 40px 0 15px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    /* Removed footer-social-links centering for get-in-touch as it's gone */
+}

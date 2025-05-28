@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="about.css">
+  <title>About Wanderlust</title>
+  <style>
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+    
+  </style>
+  
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="FRONT.html">Tour De Zubu</a>
+        </div>
+        <nav>
+            <a href="top.html">Destination</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+  <div class="overlay">
+    <div class="container">
+      <h1>About Wanderlust</h1>
+      <p>Welcome to <strong>Wanderlust</strong>, your ultimate travel companion. We're passionate about exploring the world's most incredible destinations and sharing our discoveries with you. Whether you're a seasoned traveler or just starting to plan your next adventure, Wanderlust is here to inspire and guide you.</p>
+
+      <h2>Our Mission</h2>
+      <p>At Wanderlust, our mission is to provide accurate and up-to-date information about destinations worldwide. We showcase each place's unique charm and character, from bustling cities to hidden gems.</p>
+
+      <h2>What to Expect</h2>
+      <ul>
+        <li>🌍 In-depth destination guides tailored for every type of traveler</li>
+        <li>📍 Smart GPS-based recommendations and live map integration</li>
+        <li>☀️ Real-time weather forecasts for better travel planning</li>
+        <li>💬 24/7 AI-powered chatbot assistance for instant help</li>
+        <li>📸 Stunning visuals and immersive virtual tours</li>
+        <li>📅 Curated travel itineraries and budget tips</li>
+        <li>🚗 Navigation and transport guides</li>
+        <li>📲 Mobile-friendly access with offline features</li>
+      </ul>
+
+      <div class="cta">
+        Join the journey — start exploring today and let Wanderlust fuel your next adventure!
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const links = document.querySelectorAll('.nav-links a');
+  
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          links.forEach(l => l.classList.remove('active-link'));
+          link.classList.add('active-link');
+        });
+      });
+    });
+  </script>
+  
+</body>
+</html>

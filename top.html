@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Top Travel Spots in Cebu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* * Universal Box-Sizing and Font-Family
+         * Applies to all elements for consistent box model behavior and default font.
+         */
+        * {
+            margin: 0; /* Remove default margins */
+            padding: 0; /* Remove default paddings */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            font-family: 'Poppins', sans-serif; /* Apply Poppins as the primary font */
+        }
+
+        /* * Body Styling
+         * Sets the overall background and text color for the page.
+         */
+        body {
+            background-image: url(https://gocebutours.com/wp-content/uploads/2023/04/1200px-Allan_Jay_Quesada_-_Santo_Nino_Cathedral_or_the_Basilica_del_Santo_Nino_DSC_7880-1024x753.jpg);
+            background-size: cover;
+            background-position: center center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Makes the background image fixed when scrolling */
+            color: white; /* Default white text color for the body */
+        }
+
+        /* * Main Header Styling (Navigation Bar)
+         * This header is positioned absolutely to float over the content below it.
+         * Adjust `padding`, `top`, and `left/right` for position/margins.
+         */
+        header {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            display: flex; /* Use Flexbox for alignment of logo and navigation */
+            align-items: center; /* Vertically center items */
+            justify-content: space-between; /* Space out logo and nav */
+            padding: 1rem 2rem; /* Top/bottom padding: 1rem, Left/right padding: 2rem */
+            position: absolute; /* Position header over the slider/hero banner */
+            width: 100%; /* Full width */
+            z-index: 10; /* Ensure header is above other content */
+            /* You can adjust 'top', 'left', 'right' here for header positioning */
+            top: 0; /* Aligns header to the very top of the viewport */
+            left: 0; /* Aligns header to the very left of the viewport */
+            right: 0; /* Aligns header to the very right of the viewport */
+        }
+
+        /* * Logo Styling
+         * Controls the appearance of the site title/logo.
+         */
+        .logo {
+            flex: 1; /* Allows logo to take up available space on the left */
+            font-size: 1.5rem; /* Larger font for logo */
+            font-weight: 700; /* Bold font weight */
+        }
+
+        /* Style for the link inside the logo */
+        .logo a {
+            text-decoration: none; /* Remove underline for the logo link */
+            color: white; /* Set color to white for the logo link */
+            transition: color 0.3s ease; /* Smooth color transition on hover */
+        }
+
+        .logo a:hover {
+            color: #00b6c2; /* Highlight color on hover, consistent with nav links */
+        }
+
+        /* * Navigation Styling
+         * Controls the layout and appearance of the navigation links.
+         */
+        nav {
+            flex: 2; /* Allows navigation to take more space, pushing it towards center/right */
+            display: flex; /* Use Flexbox for horizontal alignment of nav links */
+            justify-content: center; /* Center navigation links within their flex container */
+            align-items: center; /* Vertically center navigation links */
+        }
+
+        /* Navigation link styling */
+        nav a {
+            margin: 0 1rem; /* Spacing between links: 1rem on left and right */
+            text-decoration: none; /* Remove underline */
+            color: white; /* White link color */
+            font-weight: 500; /* Medium font weight */
+            transition: color 0.3s ease; /* Smooth color transition on hover */
+        }
+
+        nav a:hover {
+            color: #00b6c2; /* Highlight color on hover */
+        }
+
+        /* * Hero Banner Section Styling
+         * This is the main banner with "Top Travel Spots in Cebu" title and subtitle.
+         * It has padding at the top to ensure content starts below the absolute header.
+         */
+        .hero-banner {/* A slightly lighter teal for the banner background */
+            color: white; /* White text */
+            text-align: center; /* Center align text within the banner */
+            padding: 10px; /* Top padding (8rem to clear header), horizontal padding (2rem), bottom padding (3rem) */
+            min-height: 100px; /* Minimum height for the banner */
+            display: flex;
+            position: absolute; /* Use flexbox to center content */
+            transform: translate(50% , -130%);
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Vertically center content */
+            
+        }
+
+        .hero-banner h1 {
+            font-size: 3.5rem; /* Large font size for the main title */
+            font-weight: 700; /* Bold font weight */
+            margin-bottom: 0.5rem; /* Margin below the title */
+            line-height: 1.2; /* Line height for readability */
+        }
+
+        .hero-banner p {
+            font-size: 1.3rem; /* Font size for the subtitle */
+            font-weight: 400; /* Regular font weight */
+            line-height: 1.5; /* Line height for readability */
+            max-width: 700px; /* Limit width for better readability */
+        }
+
+        /* * Main Content Container
+         * Centers the content and applies overall padding.
+         * Adjust `max-width` and `padding` for overall content area.
+         */
+        .container {
+            max-width: 1100px; /* Maximum width of the content area */
+            margin-top: 250px; /* Top/bottom margin: 2rem, auto for horizontal centering */
+            padding: 0 2rem; /* Horizontal padding for content inside the container */
+        }
+
+        /* * Individual Travel Spot Card Styling
+         * Defines the layout and appearance of each travel spot entry.
+         * Adjust `margin-bottom` for spacing between cards.
+         */
+        .spot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 250px;
+            margin-right: -100px; 
+            flex-wrap: wrap; 
+            margin-bottom: 1.5rem; 
+            border-radius: 10px; 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            overflow: hidden; 
+            color: #333; 
+        }
+
+        /* Image Styling within the Spot Card */
+        .spot img {
+            width: 100%; /* Full width on small screens */
+            max-width: 400px; /* Maximum width for the image on larger screens */
+            height: 300px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            border-radius: 10px 0 0 10px; /* Rounded corners only on left side for larger screens */
+        }
+
+        /* Information Section within the Spot Card */
+        .spot-info {
+      padding: 1rem 1.5rem;
+      flex: 1;
+    }
+
+    .spot-info h2 {
+      margin-top: 0;
+      color: #97dfe4;
+    }
+
+    .spot-info p {
+      margin: 0.5rem 0;
+    }
+        /* * Button Styling
+         * Common styles for all action buttons.
+         * Adjust `margin-top`, `padding` for button spacing/size.
+         */
+        .visit-button,
+        .map-button {
+            display: inline-block; /* Allows side-by-side display */
+            margin-top: 0.5rem; /* Margin above buttons */
+            margin-right: 0.8rem; /* Margin to the right of buttons */
+            padding: 0.6rem 1.2rem; /* Vertical padding: 0.6rem, Horizontal padding: 1.2rem */
+            background-color: #4d7486; /* Teal background color */
+            color: white; /* White text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Slightly rounded corners */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover transition */
+            font-weight: 500; /* Medium font weight */
+        }
+
+        .visit-button:hover,
+        .map-button:hover {
+            background-color: #00796b; /* Darker teal on hover */
+            transform: translateY(-2px); /* Slight lift effect on hover */
+        }
+
+        /* * Responsive Adjustments
+         * Styles that change based on screen width.
+         */
+        @media (max-width: 768px) {
+            /* Adjustments for tablets and smaller desktops */
+            header {
+                padding: 1rem 1rem; /* Reduce header padding */
+                flex-direction: column; /* Stack logo and nav vertically */
+                align-items: center; /* Center items when stacked */
+                position: static; /* Make header part of the normal flow */
+            }
+
+            .logo {
+                margin-bottom: 0.5rem; /* Add space below logo when stacked */
+            }
+
+            nav {
+                flex-direction: column; /* Stack nav links vertically */
+                gap: 0.5rem; /* Reduce gap between stacked nav links */
+            }
+
+            nav a {
+                margin: 0.2rem 0; /* Adjust vertical margin for stacked links */
+            }
+
+            .hero-banner {
+                padding: 5rem 1rem 2rem; /* Adjust padding as header is no longer absolute */
+                min-height: 200px; /* Reduce minimum height */
+            }
+
+            .hero-banner h1 {
+                font-size: 2.5rem; /* Smaller title on smaller screens */
+            }
+
+            .hero-banner p {
+                font-size: 1.1rem; /* Smaller subtitle on smaller screens */
+            }
+
+            .container {
+                padding: 0 1rem; /* Reduce container padding */
+            }
+
+            .spot {
+                flex-direction: column; /* Stack image and info vertically */
+            }
+
+            .spot img {
+                width: 100%; /* Image takes full width */
+                max-width: none; /* Remove max-width constraint */
+                height: 200px; /* Adjust height for stacked images */
+                border-radius: 10px 10px 0 0; /* Rounded corners on top for stacked images */
+            }
+
+            .spot-info {
+                padding: 1rem; /* Adjust padding for stacked info */
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Adjustments for mobile phones */
+            .hero-banner h1 {
+                font-size: 2rem; /* Even smaller title on very small screens */
+            }
+            .hero-banner p {
+                font-size: 0.9rem; /* Even smaller subtitle */
+            }
+
+            .spot-info h2 {
+                font-size: 1.5rem; /* Smaller spot titles */
+            }
+
+            .visit-button,
+            .map-button {
+                padding: 0.5rem 1rem; /* Smaller buttons */
+                font-size: 0.9rem; /* Smaller button text */
+                margin-right: 0.5rem; /* Reduce button spacing */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> <a href="FRONT.html">Tour De Zubu</a></div>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="hero-banner">
+        <h1>Top Travel Spots in Cebu</h1>
+        <p>Discover the must-visit destinations in the Queen City of the South</p>
+    </div>
+
+    <div class="container">
+        <div class="spot">
+            <img src="kawasan.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x250/009688/ffffff?text=Image+Not+Found';" alt="Turquoise waters of Kawasan Falls in Badian, Cebu">
+            <div class="spot-info">
+                <h2>Kawasan Falls</h2>
+                <p>Located in Badian, this turquoise waterfall is ideal for swimming, canyoneering, and relaxing in nature’s beauty.</p>
+                <a href="https://guidetothephilippines.ph/articles/adventure-and-outdoors/kawasan-falls-cebu-guide" class="visit-button" target="_blank">Travel Guide</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Kawasan+Falls" class="map-button" target="_blank">Google Maps</a>
+                <a href="https://www.youtube.com/results?search_query=Kawasan+Falls+Cebu+tour" class="visit-button" target="_blank">Watch Video Tour</a>
+            </div>
+        </div>
+
+        <div class="spot">
+            <img src="oslob.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x250/00796b/ffffff?text=Image+Not+Found';" alt="Tourist swimming with whale sharks in Oslob, Cebu">
+            <div class="spot-info">
+                <h2>Oslob Whale Shark Watching</h2>
+                <p>Get the unforgettable experience of swimming with gentle whale sharks in Oslob, Cebu’s southern gem.</p>
+                <a href="https://www.oslobwhalesharks.com/" class="visit-button" target="_blank">Travel Guide</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Oslob+Whale+Shark+Watching" class="map-button" target="_blank">Google Maps</a>
+                <a href="https://www.youtube.com/results?search_query=Oslob+Whale+Shark+Watching" class="visit-button" target="_blank">Watch Video Tour</a>
+            </div>
+        </div>
+
+        <div class="spot">
+            <img src="temple.webp" onerror="this.onerror=null;this.src='https://placehold.co/400x250/009688/ffffff?text=Image+Not+Found';" alt="The Roman-inspired Temple of Leah overlooking Cebu City">
+            <div class="spot-info">
+                <h2>Temple of Leah</h2>
+                <p>A grand Roman-inspired temple in Busay, built as a symbol of undying love, offering scenic city views.</p>
+                <a href="https://www.zenrooms.com/blog/post/temple-of-leah/" class="visit-button" target="_blank">Travel Guide</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Temple+of+Leah" class="map-button" target="_blank">Google Maps</a>
+                <a href="https://www.youtube.com/results?search_query=Temple+of+Leah+Cebu" class="visit-button" target="_blank">Watch Video Tour</a>
+            </div>
+        </div>
+
+        <div class="spot">
+            <img src="sirao.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x250/00796b/ffffff?text=Image+Not+Found';" alt="Vibrant celosia flowers in Sirao Flower Garden, Cebu">
+            <div class="spot-info">
+                <h2>Sirao Flower Garden</h2>
+                <p>Known as the “Little Amsterdam” of Cebu, this garden is filled with vibrant celosia flowers and Instagram-worthy spots.</p>
+                <a href="https://lakbaypinas.com/ultimate-guide-to-sirao-flower-garden-in-cebu-2025/" class="visit-button" target="_blank">Travel Guide</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Sirao+Flower+Garden" class="map-button" target="_blank">Google Maps</a>
+                <a href="https://www.youtube.com/results?search_query=Sirao+Flower+Garden+Cebu" class="visit-button" target="_blank">Watch Video Tour</a>
+            </div>
+        </div>
+
+        <div class="spot">
+            <img src="bantayan.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x250/009688/ffffff?text=Image+Not+Found';" alt="White sands and blue waters at Bantayan Island, Cebu">
+            <div class="spot-info">
+                <h2>Bantayan Island</h2>
+                <p>Pristine white beaches, turquoise waters, and a laid-back vibe make this northern island paradise a must-visit.</p>
+                <a href="https://www.thepoortraveler.net/2017/09/bantayan-island-cebu-itinerary/" class="visit-button" target="_blank">Travel Guide</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Bantayan+Island" class="map-button" target="_blank">Google Maps</a>
+                <a href="https://www.youtube.com/results?search_query=Bantayan+Island+Cebu" class="visit-button" target="_blank">Watch Video Tour</a>
+            </div>
+        </div>
+
+        <div class="spot">
+            <img src="malapascua.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x250/00796b/ffffff?text=Image+Not+Found';" alt="Divers exploring Malapascua Island, Cebu">
+            <div class="spot-info">
+                <h2>Malapascua Island</h2>
+                <p>A top destination for diving enthusiasts, especially to spot thresher sharks and enjoy vibrant marine life.</p>
+                <a href="https://www.thepoortraveler.net/2018/01/scuba-diving-malapascua-island-cebu/" class="visit-button" target="_blank">Travel Guide</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Malapascua+Island" class="map-button" target="_blank">Google Maps</a>
+                <a href="https://www.youtube.com/results?search_query=Malapascua+Island+Cebu" class="visit-button" target="_blank">Watch YouTube Tour</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

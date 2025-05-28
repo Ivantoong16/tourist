@@ -1,0 +1,249 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+    color: #fff;
+}
+ header {
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      position: absolute; /* Position header over the slider */
+      width: 100%;
+      z-index: 10; /* Ensure header is above other content */
+    }
+
+    /* Logo styling */
+    .logo {
+      flex: 1; /* Allows logo to take up available space */
+      font-size: 1.5rem; /* Larger font for logo */
+      font-weight: 700; /* Bold font weight */
+    }
+
+    /* Style for the link inside the logo */
+    .logo a {
+      text-decoration: none; /* Remove underline for the logo link */
+      color: white; /* Set color to white for the logo link */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+    .logo a:hover {
+      color: #00b6c2; /* Highlight color on hover, consistent with nav links */
+    }
+
+    /* Navigation styling */
+    nav {
+      flex: 2; /* Allows navigation to take more space */
+      display: flex;
+      justify-content: center; /* Center navigation links */
+      align-items: center;
+    }
+
+    /* Navigation link styling */
+    nav a {
+      margin: 0 1rem; /* Spacing between links */
+      text-decoration: none; /* Remove underline */
+      color: white; /* White link color */
+      font-weight: 500; /* Medium font weight */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+    nav a:hover {
+      color: #00b6c2; /* Highlight color on hover */
+    }
+
+  /* Destinations */
+  .destinations-option{
+    display: none;
+    position: absolute;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    top: 40px;
+    font-size: 15px;
+    padding: 20px;
+    width: 150px;
+    cursor:auto;
+  }
+  .destinations-option ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .destinations-option li{
+    padding: 5px;
+    border-bottom: 1px solid #b2b1b1;
+    cursor: pointer;
+  }
+  .destinations-option li:hover{
+    color: #6f6f6f;
+  }
+  .destinations-option li:last-child{
+    border-bottom: none;
+  }
+  .destinations-option li a{
+    text-decoration: none;
+    color: #333;
+  }
+  .destinations-option li a:hover{
+    color: #666;
+  }
+  .destinations-link:hover + .destinations-option,
+  .destinations-option:hover{
+    display: block;
+    color: white;
+  }
+
+  /* About */
+  .about-description {
+    display: none;
+    position: absolute;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    padding: 20px;
+    width: 150px;
+    z-index: 1;
+    cursor:auto;
+  }
+  .about-description h2{
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-description p{
+    font-size: 10px;
+  }
+  .about-description p span {
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .about-link{
+    position: relative;
+    color: #ffdd57;
+  }
+  .about-link:hover .about-description{
+    display: block;
+    color: white;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #3a3a3a;
+      padding: 1rem;
+      gap: 1rem;
+      z-index: 999;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    .login-mobile {
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+
+    .login-mobile:hover {
+      color: white;
+    }
+  }
+
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #fefefe;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #ffdd57;
+      margin-top: 30px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 8px;
+    }
+
+    p, ul li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #eee;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-top: 15px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #ffd700;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      p, ul li {
+        font-size: 1rem;
+      }
+    }
